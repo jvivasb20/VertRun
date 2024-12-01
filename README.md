@@ -1,50 +1,67 @@
-# Welcome to your Expo app 👋
+## Setup
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+### Prerequisites
 
-## Get started
+Ensure the have the following requirements:
 
-1. Install dependencies
+- Node.js and npm
+- Expo CLI
+- Strava Developer App and credentials
+
+### Environment Variables
+
+Create a `.env` file in the root directory and add the following variables:
+
+```env
+# General configuration
+API_BASE_URL=<your-api-base-url>
+STRAVA_CLIENT_ID=<your-strava-client-id>
+STRAVA_CLIENT_SECRET=<your-strava-client-secret>
+STRAVA_REDIRECT_URI=<your-strava-redirect-uri>
+```
+
+---
+
+## Authentication
+
+This project uses [React Native App Auth](https://commerce.nearform.com/open-source/react-native-app-auth/docs/providers/strava) for Strava authentication. Ensure your Strava Developer App is set up and configured properly.
+
+---
+
+## How to Start
+
+1. Clone the repository:
+
+   ```bash
+   git clone <repo-url>
+   cd <project-directory>
+   ```
+
+2. Install dependencies:
 
    ```bash
    npm install
    ```
 
-2. Start the app
+3. Set up the `.env` file with the required variables.
 
-   ```bash
-    npx expo start
-   ```
+4. Start the application:
+   - For iOS:
+     ```bash
+     npx react-native run-ios
+     ```
+   - For Android:
+     ```bash
+     npx react-native run-android
+     ```
 
-In the output, you'll find options to open the app in a
+---
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## Out of Scope
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+The following features were not included for the assignment:
 
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+- **Password Reset Functionality**.
+- **Social Logins**: Authentication via popular social platforms.
+- **Session Persistence**: Ensure users remained logged in across app restarts.
+- **Support for All Activity Types**: Extend functionality to accommodate all activity types in strava (e.g., hikes, swims, bike rides, etc.).
