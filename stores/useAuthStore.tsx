@@ -32,13 +32,9 @@ export const useAuthStore = create<AuthStore>((set) => ({
   loading: false,
   error: null,
   loginWithStrava: async () => {
-    console.log("loginWithStrava...");
-
     set({ loading: true, error: null });
     try {
       const authResult = await authorizeStrava();
-
-      console.log("authResult", authResult);
 
       const { accessToken, refreshToken, tokenAdditionalParameters } =
         authResult;
@@ -46,8 +42,6 @@ export const useAuthStore = create<AuthStore>((set) => ({
       const athlete =
         tokenAdditionalParameters?.athlete as unknown as StravaUser;
       const expiresAt = tokenAdditionalParameters?.expires_at as string;
-
-      console.log("athlete", athlete);
 
       if (!accessToken || !athlete) {
         throw new Error("Invalid auth response");

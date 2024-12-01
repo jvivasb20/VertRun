@@ -1,6 +1,5 @@
 import { Loading } from "@/components/Loading";
-import { authorizeStrava } from "@/config/oauth";
-import { Colors } from "@/constants/Colors";
+import { KCOLORS } from "@/constants/Colors";
 import { useAuthStore } from "@/stores/useAuthStore";
 import { FontAwesome6, MaterialCommunityIcons } from "@expo/vector-icons";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
@@ -13,7 +12,6 @@ import {
   Pressable,
   TouchableOpacity,
 } from "react-native";
-import { authorize } from "react-native-app-auth";
 
 export default function SignInScreen() {
   const { loginWithStrava, loading } = useAuthStore();
@@ -34,17 +32,17 @@ export default function SignInScreen() {
       <Text className="text-start text-3xl font-bold">Login</Text>
 
       <View className="flex flex-row items-center p-2" style={{ gap: 9 }}>
-        <MaterialIcons name="alternate-email" size={24} color={Colors.light} />
+        <MaterialIcons name="alternate-email" size={24} color={KCOLORS.light} />
         <View className="flex grow flex-row items-center justify-between rounded-md border-b border-gray-400 px-1">
           <TextInput placeholder="Email" />
         </View>
       </View>
 
       <View className="flex flex-row items-center p-2" style={{ gap: 9 }}>
-        <MaterialIcons name="lock-outline" size={24} color={Colors.light} />
+        <MaterialIcons name="lock-outline" size={24} color={KCOLORS.light} />
         <View className="flex grow flex-row items-center justify-between rounded-md border-b border-gray-400 px-1">
           <TextInput placeholder="Password" secureTextEntry />
-          <MaterialIcons name="visibility" size={24} color={Colors.light} />
+          <MaterialIcons name="visibility" size={24} color={KCOLORS.light} />
         </View>
       </View>
 
@@ -68,7 +66,7 @@ export default function SignInScreen() {
         <TouchableOpacity
           onPress={onLoginWithStrava}
           className="flex h-12 flex-row items-center justify-center rounded-md p-2"
-          style={{ gap: 10, backgroundColor: Colors.strava }}
+          style={{ gap: 10, backgroundColor: KCOLORS.strava }}
         >
           {isLoading ? (
             <Loading />
@@ -90,7 +88,7 @@ export default function SignInScreen() {
           <MaterialCommunityIcons
             name="google"
             size={24}
-            color={Colors.light}
+            color={KCOLORS.light}
           />
           <Text className="text-lg font-semibold text-gray-400">
             Login with Google
@@ -103,7 +101,11 @@ export default function SignInScreen() {
           className="flex h-12 flex-row items-center justify-center rounded-md border border-gray-200 bg-gray-200 p-2"
           style={{ gap: 10 }}
         >
-          <MaterialCommunityIcons name="apple" size={24} color={Colors.light} />
+          <MaterialCommunityIcons
+            name="apple"
+            size={24}
+            color={KCOLORS.light}
+          />
           <Text className="text-lg font-semibold text-gray-400">
             Login with Apple
           </Text>

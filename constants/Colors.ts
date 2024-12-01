@@ -6,7 +6,7 @@
 const tintColorLight = "#0a7ea4";
 const tintColorDark = "#fff";
 
-export const Colors = {
+export const KCOLORS = {
   primary: "#bcf516",
   secondary: "#7db000",
   accent: "#f5ffc7",
