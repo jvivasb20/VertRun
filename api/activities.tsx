@@ -14,9 +14,6 @@ export const fetchActivities = async (
   try {
     const axiosInstance = createAxiosInstance(token);
 
-    console.log("fetching activities");
-    console.log("params", params);
-
     const response = await axiosInstance.get("/athlete/activities", {
       params,
     });

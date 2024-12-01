@@ -97,6 +97,7 @@ export default function MonthlyStatsScreen() {
 
   const navigateToActivities = () => {
     const dateThreshold = getDateThreshold(filterRange);
+
     router.push(`/activities?dateThreshold=${dateThreshold}`);
   };
 

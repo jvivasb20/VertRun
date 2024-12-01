@@ -14,11 +14,13 @@ import {
 import { Activities } from "@/types/Activities";
 import { Metric } from "@/components/Activities";
 import { Placeholder128 } from "@/constants/Placeholders";
-import { router } from "expo-router";
+import { router, useLocalSearchParams } from "expo-router";
 import { Image } from "expo-image";
 
 export default function ActivitiesScreen() {
   const { user, accessToken } = useAuthStore();
+
+  const { dateThreshold } = useLocalSearchParams<{ dateThreshold: string }>();
 
   const activitiesQuery = useQuery<Activities[]>({
     queryKey: ["activities"],
@@ -26,7 +28,10 @@ export default function ActivitiesScreen() {
       if (!accessToken) {
         throw new Error("Access token is missing.");
       }
-      const activities = await fetchActivities(accessToken, {});
+      const activities = await fetchActivities(accessToken, {
+        before: dateThreshold ? parseInt(dateThreshold, 10) : undefined,
+        after: dateThreshold ? parseInt(dateThreshold, 10) : undefined,
+      });
       return activities || [];
     },
     staleTime: 5 * 60 * 1000, // Cache activities for 5 minutes
